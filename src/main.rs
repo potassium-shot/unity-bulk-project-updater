@@ -18,9 +18,9 @@ fn main() -> eframe::Result {
         ..Default::default()
     };
     eframe::run_native(
-        "eframe template",
+        "Unity bulk project updater",
         native_options,
-        Box::new(|cc| Ok(Box::new(eframe_template::TemplateApp::new(cc)))),
+        Box::new(|cc| Ok(Box::new(unity_bulk_project_updater::UpdaterApp::new(cc)))),
     )
 }
 
@@ -50,7 +50,11 @@ fn main() {
             .start(
                 canvas,
                 web_options,
-                Box::new(|cc| Ok(Box::new(eframe_template::TemplateApp::new(cc)))),
+                Box::new(|cc| {
+                    Ok(Box::new(
+                        unity - bulk - project - updater::TemplateApp::new(cc),
+                    ))
+                }),
             )
             .await;
 

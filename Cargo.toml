@@ -1,26 +1,29 @@
 [package]
-name = "eframe_template"
+name = "unity-bulk-project-updater"
 version = "0.1.0"
-authors = ["Emil Ernerfeldt <emil.ernerfeldt@gmail.com>"]
+authors = ["potassium-shot <tonizana.dev@gmail.com>"]
 edition = "2021"
 include = ["LICENSE-APACHE", "LICENSE-MIT", "**/*.rs", "Cargo.toml"]
-rust-version = "1.81"
 
 [package.metadata.docs.rs]
 all-features = true
 targets = ["x86_64-unknown-linux-gnu", "wasm32-unknown-unknown"]
 
 [dependencies]
+anyhow = "1.0"
 egui = "0.31"
+egui-file-dialog = "0.9"
 eframe = { version = "0.31", default-features = false, features = [
-    "accesskit",     # Make egui compatible with screen readers. NOTE: adds a lot of dependencies.
-    "default_fonts", # Embed the default egui fonts.
-    "glow",          # Use the glow rendering backend. Alternative: "wgpu".
-    "persistence",   # Enable restoring app state when restarting the app.
-    "wayland",       # To support Linux (and CI)
-    "x11",           # To support older Linux distributions (restores one of the default features)
+	"accesskit",     # Make egui compatible with screen readers. NOTE: adds a lot of dependencies.
+	"default_fonts", # Embed the default egui fonts.
+	"glow",          # Use the glow rendering backend. Alternative: "wgpu".
+	"persistence",   # Enable restoring app state when restarting the app.
+	"wayland",       # To support Linux (and CI)
+	"x11",           # To support older Linux distributions (restores one of the default features)
 ] }
+kinded = "0.3.0"
 log = "0.4.27"
+regex = "1.11"
 
 # You only need serde if you want app persistence:
 serde = { version = "1.0.219", features = ["derive"] }
@@ -41,6 +44,8 @@ opt-level = 2 # fast and small wasm
 [profile.dev.package."*"]
 opt-level = 2
 
+[build-dependencies]
+winresource = "0.1"
 
 [patch.crates-io]
 
